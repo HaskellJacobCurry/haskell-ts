@@ -1,13 +1,13 @@
-import {List} from '../../../dist/Data/List'
-import {Int} from '../../../dist/Data/Int'
-import {Maybe} from '../../../dist/Data/Maybe'
-import {Tuple} from '../../../dist/Data/Tuple'
-import {LazySequence} from '../../../dist/Clojure/LazySequence'
+import {List} from '../../../dist/Instance/Data/List'
+import {Int} from '../../../dist/Instance/Data/Int'
+import {Maybe} from '../../../dist/Instance/Data/Maybe'
+import {Tuple} from '../../../dist/Instance/Data/Tuple'
+import {LazySequence} from '../../../dist/DataStructure/Clojure/LazySequence'
 import {
 	apply,
 	create,
 	flip,
-} from '../../../dist/util/common'
+} from '../../../dist/Common/common'
 
 ({
 	0: () => (
@@ -82,5 +82,14 @@ import {
 		})(({list0, list1}) => apply(List.merge(flip(Int.compare))(list0)(list1)
 		))(_ => apply(List.show(Int.Show)(_).toString()
 		))(console.log)
+	),
+	'sortBy': () => (
+		apply({
+			list0: List.create(
+				[3, 6, 1, -1, 11, 9].map(Int)
+			), 
+		})(({list0}) => apply(List.sortBy(flip(Int.compare))(list0)
+		))(_ => apply(List.show(Int.Show)(_).toString()
+		))(console.log)
 	)
-})['merge']();
+})['sortBy']();

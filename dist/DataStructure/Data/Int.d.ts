@@ -1,0 +1,58 @@
+import { IInt } from '../../Typeclass/Data/IInt';
+import { Bool } from '../../Instance/Data/Bool';
+declare const URI: "Int";
+declare type URI = typeof URI;
+export { URI };
+interface Int extends IInt {
+    URI: URI;
+}
+export { Int };
+declare let fromI: (_: IInt) => Int;
+export { fromI };
+declare let createInt: (value: number) => Int;
+export { createInt as create };
+declare let zero: () => Int;
+export { zero };
+declare let one: () => Int;
+export { one };
+declare let add: (_: Int) => (_: Int) => Int;
+export { add };
+declare let mul: (_: Int) => (_: Int) => Int;
+export { mul };
+declare let sub: (_: Int) => (_: Int) => Int;
+export { sub };
+declare let inc: (_: Int) => Int;
+export { inc };
+declare let dec: (_: Int) => Int;
+export { dec };
+declare let even: (_: Int) => Bool;
+export { even };
+declare let odd: (_: Int) => Bool;
+export { odd };
+declare let abs: (_: Int) => Int;
+export { abs };
+declare let negate: (_: Int) => Int;
+export { negate };
+declare let eq: (_: Int) => (_: Int) => Bool;
+export { eq };
+declare type Constructor = typeof createInt;
+export { Constructor };
+interface HInt {
+    create: (value: number) => Int;
+    fromI: (_: IInt) => Int;
+    zero: () => Int;
+    one: () => Int;
+    add: (_: Int) => (_: Int) => Int;
+    mul: (_: Int) => (_: Int) => Int;
+    sub: (_: Int) => (_: Int) => Int;
+    inc: (_: Int) => Int;
+    dec: (_: Int) => Int;
+    even: (_: Int) => Bool;
+    odd: (_: Int) => Bool;
+    abs: (_: Int) => Int;
+    negate: (_: Int) => Int;
+    eq: (_: Int) => (_: Int) => Bool;
+}
+export { HInt };
+declare let Int: Constructor & HInt;
+export default Int;

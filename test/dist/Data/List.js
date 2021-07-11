@@ -1,11 +1,11 @@
 "use strict";
 exports.__esModule = true;
-var List_1 = require("../../../dist/Data/List");
-var Int_1 = require("../../../dist/Data/Int");
-var Maybe_1 = require("../../../dist/Data/Maybe");
-var Tuple_1 = require("../../../dist/Data/Tuple");
-var LazySequence_1 = require("../../../dist/Clojure/LazySequence");
-var common_1 = require("../../../dist/util/common");
+var List_1 = require("../../../dist/Instance/Data/List");
+var Int_1 = require("../../../dist/Instance/Data/Int");
+var Maybe_1 = require("../../../dist/Instance/Data/Maybe");
+var Tuple_1 = require("../../../dist/Instance/Data/Tuple");
+var LazySequence_1 = require("../../../dist/DataStructure/Clojure/LazySequence");
+var common_1 = require("../../../dist/Common/common");
 ({
     0: function () { return (common_1.apply(List_1.List.create(common_1.apply(common_1.create([]))(function (acc) {
         for (var i = 0; i < 1e1; i++) {
@@ -23,5 +23,11 @@ var common_1 = require("../../../dist/util/common");
     })(function (_a) {
         var list0 = _a.list0, list1 = _a.list1;
         return common_1.apply(List_1.List.merge(common_1.flip(Int_1.Int.compare))(list0)(list1));
+    })(function (_) { return common_1.apply(List_1.List.show(Int_1.Int.Show)(_).toString()); })(console.log)); },
+    'sortBy': function () { return (common_1.apply({
+        list0: List_1.List.create([3, 6, 1, -1, 11, 9].map(Int_1.Int))
+    })(function (_a) {
+        var list0 = _a.list0;
+        return common_1.apply(List_1.List.sortBy(common_1.flip(Int_1.Int.compare))(list0));
     })(function (_) { return common_1.apply(List_1.List.show(Int_1.Int.Show)(_).toString()); })(console.log)); }
-})['merge']();
+})['sortBy']();
